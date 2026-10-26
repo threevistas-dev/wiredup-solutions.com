@@ -1826,13 +1826,19 @@ ul {
   background: radial-gradient(circle at bottom right, rgba(0, 163, 255, 0.4) 0%, transparent 70%);
 }
 
-.footer-top {
+/*.footer-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
   padding-bottom: 40px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}*/
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .footer-logo {
@@ -1904,6 +1910,39 @@ ul {
   display: flex;
   justify-content: center;
   text-align: center;
+}
+.footer-bottom p {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  gap: 6px;
+}
+.footer-site-by {
+display: flex;
+flex-direction: row;
+align-items: center;
+gap: 0.15rem;
+}
+.footer-site-label {
+  line-height: 1.2;
+}
+.footer-site-logo-row {
+  display: flex;
+  align-items: center;
+  min-height: 20px;
+}
+.footer-site-logo {
+display: block;
+width: auto;
+height: 20px;
+opacity: 0.8;
+margin-left: 8px;
+}
+.footer-credits a:hover {
+  color: #ffffff;
 }
 
 @media (max-width: 1100px) {

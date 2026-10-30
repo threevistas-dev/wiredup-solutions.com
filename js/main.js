@@ -171,4 +171,91 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+  // 6. Dynamic Active Class in Nav Menu & Mega Dropdown
+  function updateNavActiveState() {
+    const rawPath = window.location.pathname.replace(/\\/g, '/');
+    const filename = rawPath.substring(rawPath.lastIndexOf('/') + 1) || 'index.html';
+    const currentHash = window.location.hash;
+
+    const navLinks = document.querySelectorAll('.nav-menu .nav-link');
+    const dropdownItems = document.querySelectorAll('.mega-dropdown .dropdown-item');
+
+    const isHomePage = filename === '' || filename === 'index.html';
+
+    const servicePages = [
+      'services.html',
+      'audio-video.html',
+      'home-business-automation.html',
+      'lighting-control.html',
+      'security-cameras.html',
+      'smart-locks.html',
+      'thermostats.html',
+      'networking.html'
+    ];
+
+    if (isHomePage) {
+      dropdownItems.forEach(item => item.classList.remove('active'));
+      navLinks.forEach(link => link.classList.remove('active'));
+
+      if (currentHash === '#contact') {
+        const contactLink = document.querySelector('.nav-menu a[href="#contact"], .nav-menu a[href="index.html#contact"]');
+        if (contactLink) contactLink.classList.add('active');
+      } else {
+        const homeLink = document.querySelector('.nav-menu a[href="#home"], .nav-menu a[href="index.html"]');
+        if (homeLink) homeLink.classList.add('active');
+      }
+    } else if (filename === 'contact.html') {
+      dropdownItems.forEach(item => item.classList.remove('active'));
+      navLinks.forEach(link => link.classList.remove('active'));
+      const contactLink = document.querySelector('.nav-menu a[href="contact.html"], .nav-menu a[href="#contact"]');
+      if (contactLink) contactLink.classList.add('active');
+    } else if (servicePages.includes(filename)) {
+      navLinks.forEach(link => link.classList.remove('active'));
+      const servicesLink = document.querySelector('.nav-item.has-dropdown > .nav-link');
+      if (servicesLink) servicesLink.classList.add('active');
+
+      dropdownItems.forEach(item => {
+        const href = (item.getAttribute('href') || '').split('#')[0];
+        if (href === filename) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+    } else {
+      navLinks.forEach(link => {
+        const href = (link.getAttribute('href') || '').split('#')[0];
+        if (href === filename) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+  }
+
+  updateNavActiveState();
+  window.addEventListener('hashchange', updateNavActiveState);
+
+  // ScrollSpy on homepage to switch active between Home and Contact
+  if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/') || !window.location.pathname.includes('.html')) {
+    const contactSection = document.getElementById('contact');
+    const homeLink = document.querySelector('.nav-menu a[href="#home"]');
+    const contactLink = document.querySelector('.nav-menu a[href="#contact"]');
+
+    if (contactSection && homeLink && contactLink) {
+      window.addEventListener('scroll', () => {
+        const scrollPos = window.scrollY + 250;
+        const contactTop = contactSection.offsetTop;
+
+        if (scrollPos >= contactTop) {
+          homeLink.classList.remove('active');
+          contactLink.classList.add('active');
+        } else {
+          contactLink.classList.remove('active');
+          homeLink.classList.add('active');
+        }
+      });
+    }
+  }
 });

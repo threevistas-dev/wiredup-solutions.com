@@ -3605,6 +3605,11 @@ textarea.form-control {
 }
 
 @media (max-width: 991px) {
+
+  .page-breadcrumb-light * {
+    font-size: 12px;
+  }
+
   .page-hero-banner {
     min-height: 300px;
     padding: 60px 0;

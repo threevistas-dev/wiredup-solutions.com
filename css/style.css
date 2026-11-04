@@ -1845,6 +1845,8 @@ ul {
 
 .footer-top {
   display: flex;
+  flex-direction: column;
+  gap: 20px;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -1929,6 +1931,7 @@ ul {
   flex-wrap: nowrap;
   white-space: nowrap;
   gap: 6px;
+  font-size: 12px;
 }
 
 .footer-site-by {

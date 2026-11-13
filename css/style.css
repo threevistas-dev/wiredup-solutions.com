@@ -2848,20 +2848,22 @@ textarea.form-control {
   margin: 20px 0 0;
 }
 
-.footer-phone-text {
-  font-size: 15px;
-  color: #cfd8e3;
-  margin: 0;
-}
-
+.footer-address-text a,
 .footer-phone-text a {
   color: #cfd8e3;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
+.footer-address-text a:hover,
 .footer-phone-text a:hover {
   color: #ffffff;
+}
+
+.footer-phone-text {
+  font-size: 15px;
+  color: #cfd8e3;
+  margin: 0;
 }
 
 .footer-col-title {

@@ -3497,6 +3497,15 @@ textarea.form-control {
   }
 }
 
+@media (max-width: 1200px) {
+  .btn,
+  .header-call-btn,
+  .btn-submit-form {
+    font-size: 13px;
+    padding: 5px 14px;
+  }
+}
+
 @media (max-width: 1100px) {
 
   .hero-shape-left,

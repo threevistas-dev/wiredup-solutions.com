@@ -278,11 +278,11 @@
 
 /* Article typography */
 .post-body {
-  max-width: 900px;
+  max-width: 780px;
   color: var(--text-muted);
 }
 
-.post-body>*:first-child {
+.post-body > *:first-child {
   margin-top: 0;
 }
 
@@ -349,8 +349,7 @@
 }
 
 .post-body ul li::before {
-  content: "\f058";
-  /* FontAwesome check-circle */
+  content: "\f058"; /* FontAwesome check-circle */
   font-family: 'FontAwesome';
   position: absolute;
   left: 0;
@@ -403,7 +402,7 @@
   margin: 0;
 }
 
-.post-body blockquote p+p {
+.post-body blockquote p + p {
   margin-top: 12px;
 }
 
@@ -589,7 +588,7 @@
   color: var(--accent-red);
 }
 
-.sidebar-recent li+li {
+.sidebar-recent li + li {
   margin-top: 16px;
 }
 
@@ -669,7 +668,6 @@
 }
 
 @media (max-width: 767px) {
-
   .blog-index-section,
   .post-section {
     padding: 56px 0;
@@ -726,4 +724,9 @@
   .post-hero .page-hero-title {
     font-size: 1.6rem;
   }
+}
+
+/* Post banners: stronger overlay so long titles stay readable over busy photos */
+.post-hero .page-hero-overlay {
+  background: linear-gradient(90deg, rgba(1, 1, 82, 0.92) 0%, rgba(1, 1, 82, 0.8) 45%, rgba(1, 1, 82, 0.45) 75%, rgba(1, 1, 82, 0.2) 100%);
 }
